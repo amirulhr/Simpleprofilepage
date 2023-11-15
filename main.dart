@@ -64,15 +64,11 @@ class _ProfilePageState extends State<ProfilePage> {
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ElevatedButton(
-              onPressed: _pickImage,
-              child: Text('Upload Profile Picture'),
-            ),
             SizedBox(height: 16.0),
             SizedBox(height: 16.0),
-            _buildProfileInfo(),
+            _myinfo(),
             TextField(
               controller: _nameController,
               decoration: InputDecoration(labelText: 'Name'),
@@ -85,6 +81,10 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             SizedBox(height: 16.0),
             ElevatedButton(
+              onPressed: _pickImage,
+              child: Text('Upload Profile Picture'),
+            ),
+            ElevatedButton(
               onPressed: _submitProfile,
               child: Text('Submit'),
             ),
@@ -94,9 +94,9 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _buildProfileInfo() {
+  Widget _myinfo() {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         if (_image != null)
           Image.file(
